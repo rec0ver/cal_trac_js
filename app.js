@@ -79,4 +79,4 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
 })(ItemCtrl, UICtrl);
 
 // INITIALIZE APP
-App.init();
+AppCtrl.init();
