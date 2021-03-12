@@ -2,8 +2,9 @@
 
 
 // ITEM CONTROLLER
-// iffy function
 const ItemCtrl = (function(){
+  // ^^ iffy function run immediatley and assign
+  // to the variable
   // Item constructor
   const Item = function(id, name, calories){
     this.id = id;
