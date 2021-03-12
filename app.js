@@ -47,7 +47,7 @@ const UICtrl = (function(){
         // list item and then insert
         let html = '';
 
-        items.forEach(() => {
+        items.forEach((item) => {
           html += `<li class="collection-item" id="item-${item.id}">
           <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
           <a href="#" class="secondary-content">
