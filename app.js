@@ -51,7 +51,11 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
 
   return {
     init: function(){
-      console.log('init');
+      // fetch items from data structure
+      const items = ItemCtrl.getItems();
+
+      // populate list with items
+      UICtrl.populateItemList(items);
     }
   }
 
