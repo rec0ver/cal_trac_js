@@ -31,7 +31,22 @@ const ItemCtrl = (function(){
       return data.items;
     },
     addItem: function(name, calories){
-      
+      let ID;
+      // create ID
+      if(data.items.length > 0){
+        ID = data.items[data.items.length - 1].id + 1;
+      } else {
+        ID = 0;
+      }
+
+      // calories to number
+      calories = parseInt(calories);
+
+      // create new item
+      newItem = new Item(ID, name, calories);
+
+      // add new item to data structure
+      data.items.push(newItem);
     },
     logData: function(){
       return data;
