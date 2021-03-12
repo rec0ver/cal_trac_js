@@ -42,7 +42,21 @@ const UICtrl = (function(){
 
     // public methods
     return{
+      populateItemList: function(items){
+        // loopthrough items and make into a
+        // list item and then insert
+        let html = '';
 
+        items.forEach(() => {
+          html += `<li class="collection-item" id="item-${item.id}">
+          <strong>${item.name}: </strong> <em>${item.calories} Calories</em>
+          <a href="#" class="secondary-content">
+            <i class="edit-item fa fa-pencil"></i>
+          </a>
+        </li>`;
+        });
+        
+      }
     }
 })();
 
