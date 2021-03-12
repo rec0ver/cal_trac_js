@@ -47,6 +47,8 @@ const ItemCtrl = (function(){
 
       // add new item to data structure
       data.items.push(newItem);
+
+      return newItem;
     },
     logData: function(){
       return data;
