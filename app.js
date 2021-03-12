@@ -79,11 +79,11 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
     const UISelectors = UICtrl.getSelectors();
 
     // add item event
-    document.querySelector(UISelectors.addBtn).loadEventListeners('click', itemAddSubmit);
+    document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
   }
 
   // Add item submit
-  const itemAddSubmit = function (e) {
+  const itemAddSubmit = function(e){
     console.log('add');
 
     e.preventDefault();
