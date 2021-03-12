@@ -62,6 +62,9 @@ const UICtrl = (function(){
         // ifor each item in list
         // insert into html
         document.querySelector(UISelectors.itemList).innerHTML = html;
+      },
+      getSelectors: function(){
+        return UISelectors;
       }
     }
 })();
@@ -69,6 +72,11 @@ const UICtrl = (function(){
 
 // APP CONTROLLER
 const AppCtrl = (function(ItemCtrl, UICtrl){
+  // function expresson to load events
+  const loadEventListeners = function(){
+    // get all selectors
+    const UISelectors = UICtrl.getSelectos();
+  }
 
   return {
     init: function(){
