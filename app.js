@@ -55,7 +55,9 @@ const UICtrl = (function(){
           </a>
         </li>`;
         });
-        
+        // ifor each item in list
+        // insert into html
+        document.querySelector('#item-list').innerHTML = html;
       }
     }
 })();
