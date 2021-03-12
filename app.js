@@ -1,5 +1,6 @@
 // STORAGE CONTROLLER
 
+
 // ITEM CONTROLLER
 // iffy function
 const ItemCtrl = (function(){
@@ -22,18 +23,35 @@ const ItemCtrl = (function(){
     totalCalories: 0
   }
 
-  // public return
+  // public methods
   return {
-    
+    logData: function(){
+      return data;
+    }
   }
 })();
+
 
 // UI CONTROLLER
 const UICtrl = (function(){
 
+    // public methods
+    return{
+
+    }
 })();
+
 
 // APP CONTROLLER
 const AppCtrl = (function(ItemCtrl, UICtrl){
 
+  return {
+    init: function(){
+      console.log('init');
+    }
+  }
+
 })(ItemCtrl, UICtrl);
+
+// INITIALIZE APP
+App.init();
