@@ -14,6 +14,7 @@ const ItemCtrl = (function(){
   // data structure / state
   const data = {
     items: [
+      // hard coded data
       {id: 0, name: 'Steak Dinner', calories: 1200},
       {id: 1, name: 'Cookie', calories: 400},
       {id: 2, name: 'Eggs', calories: 300},
@@ -25,6 +26,9 @@ const ItemCtrl = (function(){
 
   // public methods
   return {
+    getItems: function(){
+      return data.items;
+    },
     logData: function(){
       return data;
     }
