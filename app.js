@@ -39,6 +39,10 @@ const ItemCtrl = (function(){
 
 // UI CONTROLLER
 const UICtrl = (function(){
+  // selectors for updating later possibly
+    const UISelectors = {
+      itemList: '#item-list'
+    }
 
     // public methods
     return{
@@ -57,7 +61,7 @@ const UICtrl = (function(){
         });
         // ifor each item in list
         // insert into html
-        document.querySelector('#item-list').innerHTML = html;
+        document.querySelector(UISelectors.itemList).innerHTML = html;
       }
     }
 })();
