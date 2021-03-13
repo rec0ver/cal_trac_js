@@ -108,6 +108,11 @@ const UICtrl = (function(){
         // insert item
         document.querySelector(UISelectors.itemList).insertAdjacentElement('beforeend', li);
       },
+      // clear fields method
+      clearInput: function(){
+        document.querySelector(UISelectors.itemNameInput).value = '';
+        document.querySelector(UISelectors.itemCaloriesInput).value = '';
+      },
       getSelectors: function(){
         return UISelectors;
       }
@@ -137,6 +142,9 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
     const newItem = ItemCtrl.addItem(input.name, input.calories);
     // add item to UI list
     UICtrl.addListItem(newItem);
+
+    // Clear fields
+    UICtrl.clearInput();
   }
 
     e.preventDefault();
