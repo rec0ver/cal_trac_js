@@ -187,7 +187,7 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
     document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
 
     // edit icon click event
-    document.querySelector(UISelectors.itemList).addEventListener('click', itemUpdateSubmit);
+    document.querySelector(UISelectors.itemList).addEventListener('click', itemEditClick);
   }
 
   // Add item submit
@@ -214,7 +214,7 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
   }
 
   // update item submit
-  const itemUpdateSubmit = function(e){
+  const itemEditClick = function(e){
 
       // event delegation to search for this item
       // because this item may not exist until
