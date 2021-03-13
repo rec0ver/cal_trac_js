@@ -16,15 +16,14 @@ const ItemCtrl = (function(){
   const data = {
     items: [
       // hard coded data
-      {id: 0, name: 'Steak Dinner', calories: 1200},
-      {id: 1, name: 'Cookie', calories: 400},
-      {id: 2, name: 'Eggs', calories: 300},
+      // {id: 0, name: 'Steak Dinner', calories: 1200},
+      // {id: 1, name: 'Cookie', calories: 400},
+      // {id: 2, name: 'Eggs', calories: 300},
     ],
     // item to update
     currentItem: null,
     totalCalories: 0
   }
-
   // public methods
   return {
     getItems: function(){
@@ -93,6 +92,8 @@ const UICtrl = (function(){
         }
       },
       addListItem: function(item){
+        // show list item
+        document.querySelector(UISelectors.itemList).style.display = 'block';
         // Create li element
         const li = document.createElement('li');
         // add class
@@ -112,6 +113,9 @@ const UICtrl = (function(){
       clearInput: function(){
         document.querySelector(UISelectors.itemNameInput).value = '';
         document.querySelector(UISelectors.itemCaloriesInput).value = '';
+      },
+      hideList: function(){
+        document.querySelector(UISelectors.itemList).style.display = 'none';
       },
       getSelectors: function(){
         return UISelectors;
@@ -146,7 +150,6 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
     // Clear fields
     UICtrl.clearInput();
   }
-
     e.preventDefault();
   }
 
@@ -156,9 +159,14 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
       // fetch items from data structure
       const items = ItemCtrl.getItems();
 
-      // populate list with items
-      UICtrl.populateItemList(items);
-
+      // check if any items
+      if (items.length === 0){
+        UICtrl.hideList();
+      }else {
+        // populate list with items
+      // UICtrl.populateItemList(items);
+      console.log(items.length)
+      }
       // load event listeners
       loadEventListeners();
     }
