@@ -158,6 +158,9 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
 
     // add item event
     document.querySelector(UISelectors.addBtn).addEventListener('click', itemAddSubmit);
+
+    // edit icon click event
+    document.querySelector(UISelectors.itemList).addEventListener('click', itemUpdateSubmit);
   }
 
   // Add item submit
@@ -182,6 +185,19 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
   }
     e.preventDefault();
   }
+
+  // update item submit
+  const itemUpdateSubmit = function(e){
+
+      // event delegation to search for this item
+      // because this item may not exist until
+      // after the page loads
+    if(e.target.classList.contains('edit-item')){
+      console.log('wor')
+    };
+
+    e.preventDefault();
+  };
 
   // public methods
   return {
