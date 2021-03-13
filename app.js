@@ -187,6 +187,12 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
       // UICtrl.populateItemList(items);
       console.log(items.length)
       }
+
+    // get total calories
+    const totalCalories = ItemCtrl.getTotalCalories();
+    // add total calories to the ui
+    UICtrl.showTotalCalories(totalCalories);
+
       // load event listeners
       loadEventListeners();
     }
