@@ -53,6 +53,9 @@ const StorageCtrl = (function(){
         }
       });
       localStorage.setItem('items', JSON.stringify(items));
+    },
+    clearItemsFromStorage(){
+      localStorage.removeItem('items');
     }
   }
 })();
@@ -437,6 +440,9 @@ const AppCtrl = (function(ItemCtrl, StorageCtrl, UICtrl){
 
     // remove from ui
     UICtrl.removeItems();
+
+    // clear all from local storage
+    StorageCtrl.clearItemsFromStorage();
 
     // hide UL
     UICtrl.hideList();
