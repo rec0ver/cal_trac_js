@@ -339,6 +339,13 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
     // delete from ui
     UICtrl.deleteListItem(currentItem.id);
 
+    // get total calories
+    const totalCalories = ItemCtrl.getTotalCalories();
+    // add total calories to the ui
+    UICtrl.showTotalCalories(totalCalories);
+
+    UICtrl.clearEditState();
+
     e.preventDefault();
   };
 
