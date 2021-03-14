@@ -184,6 +184,11 @@ const UICtrl = (function(){
           }
         });
       },
+      deleteListItem: function(id){
+        const itemID = `#item-${id}`
+        const item = document.querySelector(itemID);
+        item.remove();
+      },
       // clear fields method
       clearInput: function(){
         document.querySelector(UISelectors.itemNameInput).value = '';
