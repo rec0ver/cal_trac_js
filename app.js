@@ -64,7 +64,7 @@ const ItemCtrl = (function(){
       calories = parseInt(calories);
 
       let found = null;
-      data.items.forEach(function(){
+      data.items.forEach(function(item){
         if(item.id === data.currentItem.id){
           item.name = name;
           item.calories = calories;
@@ -102,6 +102,7 @@ const UICtrl = (function(){
   // selectors for updating later possibly
     const UISelectors = {
       itemList: '#item-list',
+      listItems: '#item-list li',
       addBtn: '.add-btn',
       updateBtn: '.update-btn',
       deleteBtn: '.delete-btn',
@@ -153,6 +154,23 @@ const UICtrl = (function(){
         </a>`;
         // insert item
         document.querySelector(UISelectors.itemList).insertAdjacentElement('beforeend', li);
+      },
+      updateListItem: function (item){
+        let listItems = document.querySelectorAll(UISelectors.listItems);
+
+        // convert
+        listItems = Array.from(listItems);
+        console.log(item, listItems)
+        listItems.forEach(function(listItem){
+          const itemID = listItem.getAttribute('id');
+
+          if(itemID === `item-${item.id}`){
+            document.querySelector(`#${itemID}`).innerHTML = `<strong>${item.name}: </strong> <em>${item.calories} Calories</em>
+            <a href="#" class="secondary-content">
+              <i class="edit-item fa fa-pencil"></i>
+            </a>`;
+          }
+        });
       },
       // clear fields method
       clearInput: function(){
@@ -274,6 +292,8 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
     // update item
     const updatedItem = ItemCtrl.updateItem(input.name, input.calories);
 
+    // update UI
+    UICtrl.updateListItem(updatedItem);
 
     e.preventDefault();
   }
@@ -306,7 +326,6 @@ const AppCtrl = (function(ItemCtrl, UICtrl){
       loadEventListeners();
     }
   }
-
 })(ItemCtrl, UICtrl);
 
 // INITIALIZE APP
